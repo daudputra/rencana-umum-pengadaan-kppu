@@ -226,8 +226,6 @@ class RupkSpider(scrapy.Spider):
 
 
 
-        dir_raw = 'data'
-        os.makedirs(dir_raw ,exist_ok=True)
         filename = f'{id}.json'
         local_path = f'D:/Visual Studio Code/Project Done/Magang Github/API/rencana_umum_pengadaan_kppu/rencana_umum_pengadaan_kppu/data/{filename}'
         path_s3 = f's3://ai-pipeline-raw-data/data/data_descriptive/kppu/e-procurement/rencana_umum_pengadaan_kppu/swakelola/json/{filename}'
@@ -249,6 +247,6 @@ class RupkSpider(scrapy.Spider):
             'kegiatan' : kegiatan,
             'detail_data' : detail_data
         }
-        save_json(data, os.path.join(dir_raw, filename))
+        save_json(data, filename)
         # upload_to_s3(local_path, path_s3.replace('s3://', ''))
 
